@@ -16,7 +16,8 @@ schemaCallback([tableInfo]);
 };
   
 myConnector.getData = function(table, doneCallback) {
-$.getJSON("http://cl1-vmcrpees-01.multiplan.com:9200/appdynamics-snapshots/_search", function(resp) {
+//$.getJSON("http://cl1-vmcrpees-01.multiplan.com:9200/appdynamics-snapshots/_search", function(resp) {
+  curl -XGET --header 'Content-Type: application/json https://cl1-vmcrpees-01.multiplan.com:9200/appdynamics-snapshots/_search' - d {
 var feat = resp;
 tableData = [];
 // Iterate over the JSON object
