@@ -3,7 +3,7 @@ var myConnector = tableau.makeConnector();
   
 myConnector.getSchema = function (schemaCallback) {
 var cols = [
-{ id : "@timestamp", alias:"@timestamp", dataType : tableau.dataTypeEnum.datetime },
+{ id : "@timestamp", alias:"_timestamp", dataType : tableau.dataTypeEnum.datetime },
 { id : "name", alias: "businesstransaction",dataType : tableau.dataTypeEnum.string },
 
 ];
@@ -23,7 +23,7 @@ tableData = [];
 // Iterate over the JSON object
 for (var i = 0, len = feat.length; i < len; i++) {
 tableData.push({
-"@timestamp": feat[i].@timestamp,
+"_timestamp": feat[i].@timestamp,
 "name": feat[i].businesstransaction.name
 });
 }
