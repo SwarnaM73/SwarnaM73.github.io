@@ -31,8 +31,9 @@ tableData.push({
 
 var row_index = 0;
 var size = 10;
-while (row_index <= 50){
+while (row_index <= tableData.length){
   table.appendRows(tableData.slice(row_index, size + row_index)); 
+  row_index += size;
   tableau.reportProgress("Getting row: " + row_index);
 }  
 
