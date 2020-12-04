@@ -1,6 +1,10 @@
 (function () {
 var myConnector = tableau.makeConnector();
   
+ myConnector.init = function(initCallback) {
+      tableau.authType = tableau.authTypeEnum.custom;
+      initCallback();
+  }  
 myConnector.getSchema = function (schemaCallback) {
 var cols = [
 //{ id : "@timestamp", alias:"_timestamp", dataType : tableau.dataTypeEnum.datetime },
