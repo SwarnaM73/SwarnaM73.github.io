@@ -20,7 +20,7 @@ myConnector.getData = function(table, doneCallback) {
 $.getJSON({
  'url': "https://cl1-vmcrpees-01.multiplan.com:9200/*appdynamics-snapshots*/_search" 
  'beforeSend' : function(xhr){
-    xhr.setRequestHeader("Authentication","Basic " + encodeBase64("tableau" + ":" + "changeme"))
+    xhr.setRequestHeader("Authentication","Basic " + window.btoa("tableau" + ":" + "changeme"))
 },
  success: function(resp){
 //myConnector.init = function(initCallback) {
