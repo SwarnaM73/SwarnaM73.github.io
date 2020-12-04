@@ -16,7 +16,7 @@ schemaCallback([tableInfo]);
 };
   
 myConnector.getData = function(table, doneCallback) {
-$.getJSON("https://cl1-vmcrpees-01.multiplan.com:9200/'appdynamics-snapshots'/_search", function(resp) {
+$.getJSON("tableau:changeme@https://cl1-vmcrpees-01.multiplan.com:9200/'appdynamics-snapshots'/_search", function(resp) {
 var feat = resp;
 tableData = [];
   if(tableData.length = 0 )
