@@ -16,7 +16,9 @@ schemaCallback([tableInfo]);
 };
   
 myConnector.getData = function(table, doneCallback) {
-    $.ajaxSetup({
+    
+$.getJSON("https://cl1-vmcrpees-01.multiplan.com:9200/*appdynamics-snapshots*/_search", function(resp) {
+ $.ajaxSetup({
 
 headers: {'Authorization': "Basic " + btoa("tableau" + ":" + "changeme")}
 
@@ -29,7 +31,6 @@ myConnector.init = function(initCallback) {
       initCallback();
 
   };
-$.getJSON("https://cl1-vmcrpees-01.multiplan.com:9200/*appdynamics-snapshots*/_search", function(resp) {
 var feat = resp;
 tableData = [];
   if(tableData.length = 0 )
