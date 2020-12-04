@@ -20,10 +20,10 @@ myConnector.getData = function(table, doneCallback) {
 $.getJSON({
  'beforeSend' : function(xhr){
     xhr.setRequestHeader("Authentication","Basic " + btoa('tableau:changeme'))
- myConnector.init = function(initCallback) {
- tableau.authType = tableau.authTypeEnum.basic;
- initCallback();
-};
+ //myConnector.init = function(initCallback) {
+ //tableau.authType = tableau.authTypeEnum.basic;
+ //initCallback();
+//};
   'url': "https://cl1-vmcrpees-01.multiplan.com:9200/*appdynamics-snapshots*/_search" 
 },
  success: function(resp){
