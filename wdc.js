@@ -1,10 +1,6 @@
 (function () {
 var myConnector = tableau.makeConnector();
-  
- myConnector.init = function(initCallback) {
-      tableau.authType = tableau.authTypeEnum.custom;
-      initCallback();
-  }  
+ 
 myConnector.getSchema = function (schemaCallback) {
 var cols = [
 //{ id : "@timestamp", alias:"_timestamp", dataType : tableau.dataTypeEnum.datetime },
@@ -20,7 +16,20 @@ schemaCallback([tableInfo]);
 };
   
 myConnector.getData = function(table, doneCallback) {
-$.getJSON("https://cl1-vmcrpees-01.multiplan.com:9200/*appdynamics-snapshots*/_search",user: "tableau", password: "changeme", function(resp) {
+    $.ajaxSetup({
+
+headers: {'Authorization': "Basic " + btoa("tableau" + ":" + "changeme")}
+
+})
+
+myConnector.init = function(initCallback) {
+
+      tableau.authType = tableau.authTypeEnum.basic;
+
+      initCallback();
+
+  };
+$.getJSON("https://cl1-vmcrpees-01.multiplan.com:9200/*appdynamics-snapshots*/_search", function(resp) {
 var feat = resp;
 tableData = [];
   if(tableData.length = 0 )
