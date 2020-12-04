@@ -21,15 +21,13 @@ $.getJSON({
  'url': "https://cl1-vmcrpees-01.multiplan.com:9200/*appdynamics-snapshots*/_search" 
  'beforeSend' : function(xhr){
     xhr.setRequestHeader("Authentication","Basic " + window.btoa("tableau" + ":" + "changeme"))
+ myConnector.init = function(initCallback) {
+ tableau.authType = tableau.authTypeEnum.basic;
+ initCallback();
+};
 },
  success: function(resp){
-//myConnector.init = function(initCallback) {
 
- //     tableau.authType = tableau.authTypeEnum.basic;
-
- //     initCallback();
-
-//  };
 var feat = resp;
 tableData = [];
   if(tableData.length = 0 )
