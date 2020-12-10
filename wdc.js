@@ -39,7 +39,6 @@ tableData.push({
 "name": feat[i].businesstransaction.name
 });
 };
-};
 
 var row_index = 0;
 var size = 10;
@@ -53,12 +52,12 @@ doneCallback();
 });
 };
   
-tableau.registerConnector(myConnector);
   
 $(document).ready(function () {
 $("#submitButton").click(function () {
 tableau.connectionName = "AppData";
 window._tableau.triggerInitialization();  
+tableau.registerConnector(myConnector); 
 tableau.submit();
 });
 });})();
