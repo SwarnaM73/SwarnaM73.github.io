@@ -31,12 +31,13 @@ doneCallback();
 });
 };
   
-  
+tableau.registerConnector(myConnector); 
+ 
 $(document).ready(function () {
 $("#submitButton").click(function () {
 tableau.connectionName = "AppData";
 window._tableau.triggerInitialization();  
-tableau.registerConnector(myConnector); 
+
 tableau.submit();
 });
 });})();
