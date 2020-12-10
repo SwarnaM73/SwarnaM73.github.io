@@ -16,37 +16,16 @@ schemaCallback([tableInfo]);
 };
   
 myConnector.getData = function(table, doneCallback) {
-    
-//$.getJSON({
- //'beforeSend' : function(xhr){
- //   xhr.setRequestHeader("Authentication","Basic " ))
- //myConnector.init = function(initCallback) {
- //tableau.authType = tableau.authTypeEnum.basic;
- //initCallback();
-//};
-  //'url': "https://cl1-vmcrpees-01.multiplan.com:9200/*appdynamics-snapshots*/_search" 
-//},
-// success: function(resp){
-$.getJSON("https://cl1-vmcrpees-01.multiplan.com:9200/'appdynamics-snapshots'/_search", function(resp) {
+$.getJSON("https://cl1-vmcrpees-01.multiplan.com:9200/*appdynamics-snapshots*/_search", function(resp) {
 var feat = resp;
 tableData = [];
-  if(tableData.length = 0 )
-     return abort("No rows for extract");
-// Iterate over the JSON object
 for (var i = 0, len = feat.length; i < len; i++) {
 tableData.push({
 //"_timestamp": feat[i].@timestamp,
 "name": feat[i].businesstransaction.name
 });
 };
-
-var row_index = 0;
-var size = 10;
-while (row_index <= 50){
-  table.appendRows(tableData.slice(row_index, size + row_index)); 
-  row_index += size;
-  tableau.reportProgress("Getting row: " + row_index);
-}  
+  table.appendRows();
 
 doneCallback();
 });
