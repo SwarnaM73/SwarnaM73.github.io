@@ -18,8 +18,8 @@ schemaCallback([tableInfo]);
 myConnector.getData = function(table, doneCallback) {
     
 $.getJSON({
- 'beforeSend' : function(xhr){
-    xhr.setRequestHeader("Authentication","Basic " ))
+ //'beforeSend' : function(xhr){
+ //   xhr.setRequestHeader("Authentication","Basic " ))
  myConnector.init = function(initCallback) {
  tableau.authType = tableau.authTypeEnum.basic;
  initCallback();
